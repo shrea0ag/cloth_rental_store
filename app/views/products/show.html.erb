@@ -1,18 +1,24 @@
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Size</th>
-    <th>color</th>
-    <th>priceph</th>
-    <th>pricepd</th>
-    <th colspan="2"></th>
-  </tr>
-  <tr>
-	  <td><%= @product.name %></td>
-	  <td><%= @product.size %></td>
-	  <% (@product.color.split(',')).each do |x| %>
-		<td> <%= x %> </td>
-		<% end %>
-	  <td><%= @product.priceph%></td>
-	  <td><%= @product.pricepd%></td>
-   </tr>
+<div class = "row">
+	<div class = "col-md-4">
+		<h5> Name: </h5>
+		<h5> Borrowee_id: </h5>
+		<h5> Color: </h5>
+		<h5> priceph: </h5>
+		<h5> pricepd: </h5>
+	</div>
+	<div class = "col-md-4">
+		<%= @product.name %> <br>
+		<%= @product.borrowee_id %> <br>
+    <%= @product.color %> <br>
+		<%= @product.priceph%> <br>
+		<%= @product.pricepd%>
+	</div>
+	<div class = "col-md-4">
+	</div>
+</div>
+
+
+
+
+ 
+   

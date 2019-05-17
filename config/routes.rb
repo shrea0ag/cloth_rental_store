@@ -4,10 +4,7 @@ Rails.application.routes.draw do
   devise_for :borrowers
   resources :borrowers, :only => [:show]
   devise_for :borrowees
-  
-  # namespace :dashboard do
-  # 	root 'dashboard#index'
-  # end
+  resources :borrowees
   root 'pages#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ 
 end

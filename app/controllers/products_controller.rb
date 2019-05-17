@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  
   def index
     # @products = Product.all
   end
@@ -8,7 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-  	@product = Product.new(product_params)
+  	@product = current_user.products.build(product_params)
   	@product.save
   	redirect_to @product
   end
@@ -18,6 +19,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    # @product = Product.find(params[:id])
+    # @product.destroy
   end
 
   private

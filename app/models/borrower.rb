@@ -1,5 +1,2 @@
 class Borrower < User
-
-
-
 end
