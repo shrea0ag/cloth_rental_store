@@ -1,0 +1,2 @@
+class Borrowee < User
+end

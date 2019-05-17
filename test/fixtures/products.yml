@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  size_s: false
+  size_xs: false
+  size_m: false
+  size_l: false
+  size_xl: false
+  color: MyString
+  priceph: 1
+  pricepd: 1
+
+two:
+  name: MyString
+  size_s: false
+  size_xs: false
+  size_m: false
+  size_l: false
+  size_xl: false
+  color: MyString
+  priceph: 1
+  pricepd: 1

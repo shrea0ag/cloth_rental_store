@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Size</th>
+    <th>color</th>
+    <th>priceph</th>
+    <th>pricepd</th>
+    <th colspan="2"></th>
+  </tr>
+  <tr>
+	  <td><%= @product.name %></td>
+	  <td><%= @product.size %></td>
+	  <% (@product.color.split(',')).each do |x| %>
+		<td> <%= x %> </td>
+		<% end %>
+	  <td><%= @product.priceph%></td>
+	  <td><%= @product.pricepd%></td>
+   </tr>
