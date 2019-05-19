@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-  
+  before_action :authenticate_user! 
+
   def index
-    # @products = Product.all
+    @products = Product.all
   end
 
   def new
@@ -10,8 +11,12 @@ class ProductsController < ApplicationController
 
   def create
   	@product = current_user.products.build(product_params)
-  	@product.save
-  	redirect_to @product
+  	if @product.save
+     flash[:success] = "Product Added"
+  	 redirect_to borrowees_path(@borrowee)
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -22,8 +27,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    # @product = Product.find(params[:id])
-    # @product.destroy
+    @product = current_user.products.find_by(id: params[:id])
+    @product.destroy
+    redirect_to products_path
   end
 
   private

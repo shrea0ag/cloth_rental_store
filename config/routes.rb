@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :borrowers
   resources :borrowers, :only => [:show]
   devise_for :borrowees
-  resources :borrowees
+  resources :borrowees, :only => [:index]
   root 'pages#index'
  
 end

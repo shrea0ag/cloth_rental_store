@@ -1,4 +1,23 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<table class = "table">
+  <tr>
+  	<th> Borrowee_id: </th>
+	  <th> Name: </th>
+		<th> Size: </th>
+		<th> Color: </th>
+		<th> price_per/hour: </th>
+		<th> price_per/day: </th>
+    <th colspan="3"></th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+    	<td><%= product.borrowee_id %></td>
+      <td><%= product.name %></td>
+      <td><%= product.size %></td>
+      <td><%= product.color %></td>
+      <td><%= product.priceph %></td>
+      <td><%= product.pricepd %></td>
 
-<%= link_to "create", new_product_path %>
+      <td><%= link_to 'Show', product_path(product) %></td>
+
+  <% end %>
+ </table>
