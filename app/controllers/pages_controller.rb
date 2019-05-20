@@ -10,7 +10,7 @@ class PagesController < ApplicationController
   	 redirect_to borrowees_path
   	
     elsif borrower_signed_in?
-  	 redirect_to current_user
+  	 redirect_to products_path
   	else
   	 	render 'pages/index'
   	end
