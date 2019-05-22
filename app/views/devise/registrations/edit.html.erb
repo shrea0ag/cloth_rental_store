@@ -1,4 +1,4 @@
-<h2 style= "margin-top: -45px; font-size: 38px;>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 style= "margin-top: -45px; font-size: 38px;">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -41,7 +41,7 @@
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password,%>
+    <%= f.password_field :current_password%>
   </div>
 
   <div class="actions">

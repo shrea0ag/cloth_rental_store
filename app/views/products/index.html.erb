@@ -1,22 +1,26 @@
-<% @products.each do |product| %>
-  <p><%= product.name %></p>
-  <p><%= product.size %></p>
-  <p><%= product.color %></p>
-  <p><%= product.priceph %></p>
-  <p><%= product.pricepd %></p>
-  <%= form_for @order_item do |f| %>
-  <%= f.hidden_field :product_id , value: product.id %>
-    <% product.size.split(',').each do |size| %>
-      <%= f.radio_button(:size, size) %>
-      <%= f.label(:size, size) %>
-    <% end %>
-    <%= f.number_field :quantity %>
-    <%= f.label        :quantity %>
-    <% product.color.split(',').each do |color| %>
-      <%= f.radio_button(:color, color) %>
-      <%= f.label(:color, color) %>
-    <% end %>
-    <%= f.submit "Rent now" %>
-  <% end %>
 
+<h3>Search_By_Name: </h3> <%= form_tag products_path, :method =>'get' do  %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
 <% end %>
+<%= link_to "filters", new_search_path %>
+
+
+<table class = "table">
+  <tr>
+    <th>Name</th>
+    <th>Size</th>
+    <th>Color</th>
+    <th>price</th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.size %></td>
+    <td><%= product.color %></td>
+    <td><%= product.price %></td>
+    <td><%= link_to "show", product_path(product) %>
+  </tr>
+<% end %>
+</table>

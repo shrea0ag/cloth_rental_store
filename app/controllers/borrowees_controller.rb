@@ -1,6 +1,5 @@
 class BorroweesController < ApplicationController
-
-  def index
+	def index
   	@borrowees = Borrowee.all
   end
 

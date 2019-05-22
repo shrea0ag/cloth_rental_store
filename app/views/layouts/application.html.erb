@@ -28,6 +28,13 @@
       </header>
     <% end %>
     <div class="container">
+      <% if flash.present? %>
+        <ul>
+          <% flash.each do |key, message| %>
+            <li class="<%= key %>"><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= yield %>
     </div>
   </body>

@@ -1,0 +1,43 @@
+<%= form_for @search, html: {class: "pure-form"} do |f| %>
+	<div class = "field">
+		<%= f.label :keywords %>
+		<%= f.text_field :keywords %>
+	</div>
+
+	<div class = "field">
+		<%= f.label :min_price %>
+		<%= f.text_field :min_price %>
+	</div>
+
+	<div class = "field">
+		<%= radio_button_tag(:size_s, "size_s") %>
+		<%= label_tag(:size_s, "size_s") %>
+	</div>
+
+	<div class = "field">
+		<%= radio_button_tag(:size_xs, "size_xs") %>
+		<%= label_tag(:size_xs, "size_xs") %>
+	</div>
+
+	<div class = "field">
+		<%= radio_button_tag(:size_m, "size_m") %>
+		<%= label_tag(:size_m, "size_m") %>
+	</div>
+
+	<div class = "field">
+		<%= radio_button_tag(:size_l, "size_l") %>
+		<%= label_tag(:size_l, "size_l") %>
+	</div>
+
+	<div class = "field">
+		<%= radio_button_tag(:size_xl, "size_xl") %>
+		<%= label_tag(:size_xl, "size_xl") %>
+	</div>
+
+	<div class = "field">
+		<%= f.label :max_price %>
+		<%= f.text_field :max_price %>
+	</div>
+
+	<div class = "action"> <%= f.submit "search" , class:"pure-button pure-button-primary"%> </div>
+<% end %>

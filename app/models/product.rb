@@ -3,17 +3,18 @@ class Product < ApplicationRecord
 	has_many   :order_items
 	validates  :borrowee_id, presence: true
 	validates  :name, presence: true, length: { in: 6..20 }
-	validates  :name, presence: true
-	validates  :priceph, presence: true, numericality: true
-	validates  :pricepd, presence: true, numericality: true
-	# before_save :adding_prefix
-	after_commit :size
+	# validates  :size, presence: true
+	validates  :price, presence: true, numericality: true
+
 
 
 	def size 
-		q = {size_s: size_s, size_xs: size_xs, size_m: size_m, size_l: size_l, size_xl: size_xl}
+		#Product.column_names.select{|i| i[("size")]}
+		q = {s: size_s, xs: size_xs, m: size_m, l: size_l, xl: size_xl}
 		q.select{|key, value| value.eql?(true) }.keys.join(',')
 	end
+
+
 end
 
 
@@ -26,8 +27,3 @@ end
 
 
 
-# <%= f.radio_button(:priceph, "priceph") %>
-#     <%= f.label(:priceph, "price_per/hour") %>
-#     <%= f.radio_button(:pricepd, "pricepd") %>
-#     <%= f.label(:pricepd, "price_per/day") %>
-#     

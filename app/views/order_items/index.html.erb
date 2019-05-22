@@ -1,7 +1,24 @@
-<% if @order_items.any? %>
-  <% @order_items.each do |item| %>
-    <p><%= item.product.name %> | <%= link_to "Delete", order_item_path(item), :data => {:confirm => "You sure?", :method => "delete"} %></p>
-    <p> Quantity: <%= item.quantity %> 
-  <% end %>
-<% end %>
+<table class = "table">
+  <tr>
+  	<th>Name</th>
+    <th>Size</th>
+    <th>Color</th>
+    <th>return_date</th>
+    <th>total </th>
+  </tr>
+	<% if @order_items.any? %>
+	  <% @order_items.each do |item| %>
+		  <tr>
+		    <td><%= item.product.name %></td>
+		    <td><%= item.size %></td>
+		    <td><%= item.color %></td>
+		    <td><%= item.return_date %></td>
+		    <td><%= item.product.price * item.quantity * (item.return_date - Date.today) %> </td>
+		    <td><%= link_to "Delete", order_item_path(item), :data => {:confirm => "You sure?", :method => "delete"}%></td> 
+		  </tr>
+	  <% end %>
+	<% else %>
+	  <p>Your shopping cart is empty.</p>
+	<% end %>
+</table>
 

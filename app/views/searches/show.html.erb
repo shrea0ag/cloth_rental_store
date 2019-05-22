@@ -1,0 +1,12 @@
+<% if @search.search_products.empty?  %>
+		<p> No Record Found </p>
+	<% else %>
+	<% @search.search_products.each do |x| %>
+		<%= x.name %> <br>
+		<%= x.size %> <br>
+		<%= x.color %> <br>
+		<%= x.price %> <br>
+		<br>
+	<% end %>
+<% end %>
+<%= link_to "back", new_search_path %>

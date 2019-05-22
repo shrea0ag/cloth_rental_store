@@ -3,8 +3,7 @@
 	  <th> Name: </th>
 		<th> Size: </th>
 		<th> Color: </th>
-		<th> price_per/hour: </th>
-		<th> price_per/day: </th>
+		<th> price: </th>
   </tr>
   <% @borrowees.each do |borrowee| %>
   	<% borrowee.products.each do |product| %>
@@ -12,8 +11,7 @@
 	      <td><%= product.name %></td>
 	      <td><%= product.size %></td>
 	      <td><%= product.color %></td>
-	      <td><%= product.priceph %></td>
-	      <td><%= product.pricepd %></td>
+	      <td><%= product.price %></td>
 	      <td><%= link_to 'Destroy', product ,
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>

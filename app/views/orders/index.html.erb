@@ -1,0 +1,21 @@
+<table class = "table">
+  <tr>
+  	<th>Name</th>
+    <th>Size</th>
+    <th>Color</th>
+    <th>return_date</th>
+    <th>total </th>
+  </tr>
+	<% if @order.any? %>
+	  <% @order.each do |item| %>
+		  <% item.order_items.each do |x| %>
+			  <tr>
+			  	<td><%= x.product.name %> </td>
+			    <td><%= link_to "Delete", order_item_path(item), :data => {:confirm => "You sure?", :method => "delete"}%></td> 
+			  </tr>
+			<% end %>
+	  <% end %>
+	<% else %>
+	  <p>Your shopping cart is empty.</p>
+	<% end %>
+</table>

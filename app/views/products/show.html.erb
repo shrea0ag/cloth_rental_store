@@ -2,18 +2,19 @@
 	<div class = "col-md-4">
 		<h5> Name: </h5>
 		<h5> Size: </h5>
-		<h5> Borrowee_id: </h5>
 		<h5> Color: </h5>
-		<h5> priceph: </h5>
-		<h5> pricepd: </h5>
+		<h5> price: </h5>
 	</div>
 	<div class = "col-md-4">
 		<%= @product.name %> <br>
 		<%= @product.size %> <br>
-		<%= @product.borrowee_id %> <br>
     <%= @product.color %> <br>
-		<%= @product.priceph%> <br>
-		<%= @product.pricepd %> <br>
+		<%= @product.price%> <br>
+	</div>
 	<div class = "col-md-4">
+		<%= render 'order_items/new' %>
 	</div>
 </div>
+
+
+

@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_093004) do
+ActiveRecord::Schema.define(version: 2019_05_22_180019) do
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "order_items", force: :cascade do |t|
     t.integer "quantity"
@@ -20,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_05_20_093004) do
     t.datetime "updated_at", null: false
     t.string "size"
     t.string "color"
+    t.date "return_date"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
@@ -29,6 +35,8 @@ ActiveRecord::Schema.define(version: 2019_05_20_093004) do
     t.decimal "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "borrower_id"
+    t.index ["borrower_id"], name: "index_orders_on_borrower_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -39,12 +47,25 @@ ActiveRecord::Schema.define(version: 2019_05_20_093004) do
     t.boolean "size_l"
     t.boolean "size_xl"
     t.string "color"
-    t.integer "priceph"
-    t.integer "pricepd"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "borrowee_id"
+    t.decimal "price", precision: 8, scale: 2
     t.index ["borrowee_id"], name: "index_products_on_borrowee_id"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "keywords"
+    t.decimal "min_price"
+    t.decimal "max_price"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "size_s"
+    t.boolean "size_xs"
+    t.boolean "size_m"
+    t.boolean "size_l"
+    t.boolean "size_xl"
   end
 
   create_table "users", force: :cascade do |t|

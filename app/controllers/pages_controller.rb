@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
-	before_action :my_authentication
+	before_action :user_authentication
   
   def index
   end
 
   private
-  def my_authentication
+  def user_authentication
   	if borrowee_signed_in?
   	 redirect_to borrowees_path
   	
@@ -15,5 +15,4 @@ class PagesController < ApplicationController
   	 	render 'pages/index'
   	end
   end
-
 end
